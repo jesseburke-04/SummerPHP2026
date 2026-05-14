@@ -16,9 +16,9 @@ $students = [
 
 function getGradeStatus($score){
     if($score >= 50){
-        return "<span class="pass">PASS</span>";
+        return "<span class='pass'>PASS</span>";
     }else {
-        return "<span class="fail">FAIL</span>";
+        return "<span class='fail'>FAIL</span>";
     }
 }
 
@@ -52,7 +52,7 @@ function getGradeStatus($score){
         </section>
     </main>
     <footer>
-        <p>&copy; </p>
+        <p>&copy;</p>
         <p>Total Students Evaluated: <?php echo count($students); ?></p>
         <p>Current Time: <?php echo date("H:i:s"); ?></p>
     </footer>
