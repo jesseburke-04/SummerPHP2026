@@ -53,7 +53,7 @@ $products = [
                     <?php foreach($products as $item): ?>
                         <div class="product-card">
                             <h3><?php htmlspecialchars($item['name']); ?></h3>
-                            <p class="category">Category:<?php echo htmlspecialchars($item['category']); ?></p>
+                            <p class="category">Category:<?php htmlspecialchars($item['category']); ?></p>
                             <p class="price">Price: <?php echo formatCurrency($item['price']); ?></p>
                             <p class="status">Status: <?php echo getStockStatus($item['stock']); ?></p>
                         </div>
@@ -72,7 +72,7 @@ $products = [
         </section>
     </main>
     <footer>
-        <p>&copy; <?php echo date("Y"); ?></p>
+        <p>&copy; <?php date("Y"); ?></p>
     </footer>
 </body>
 </html>
