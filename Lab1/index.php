@@ -1,32 +1,26 @@
 <?php 
 /*
-    Returns a span with a specific class name.
+    Create an array with 4 students.
 */
 
-function getStockStatus($quantity){
-    if($quantity == 0){
-        return "<span class='status-out'>Out of stock.</span>";
-    }elseif ($quantity < 5){
-        return "<span class='status-low'>Low stock, only $quantity left.</span>";
-    }else{
-        return "<span class='status-ok'>In stock.</span>";
-    }
-}
-
-function formatCurrency($amount){
-    return "$" . number_format($amount, 2);
-}
+$students = [
+    ["name" => "Mark", "grade" => 85, "subject" => "Math"],
+    ["name" => "Katie", "grade" => 62, "subject" => "Science"],
+    ["name" => "Jake", "grade" => 43, "subject" => "English"],
+    ["name" => "Zara", "grade" => 96, "subject" => "History"]
+];
 
 /*
-    Our data set (array)
+    Create a function for grade status
 */
 
-$products = [
-    ["name" => "Wireless Mouse", "price" => 29.99, "stock" => 12, "category" => "Accessories"],
-    ["name" => "keyboard", "price" => 150.00, "stock" => 3, "category" => "Accessories"],
-    ["name" => "USB-C Cable", "price" => 15.75, "stock" => 0, "category" => "Cables"],
-    ["name" => "27-inch Monitor", "price" => 350.99, "stock" => 8, "category" => "Screens"]
-];
+function getGradeStatus($score){
+    if($score >= 50){
+        return "<span class="pass">PASS</span>";
+    }else {
+        return "<span class="fail">FAIL</span>";
+    }
+}
 
 ?>
 
@@ -46,33 +40,21 @@ $products = [
         <h1>Report Card</h1>
     </header>
     <main>
-        <section class="product-grid">
-            <?php if(empty($products)): ?>
-                <p>No products found.</p>
-                <?php else: ?>
-                    <?php foreach($products as $item): ?>
-                        <div class="product-card">
-                            <h3><?php htmlspecialchars($item['name']); ?></h3>
-                            <p class="category">Category:<?php htmlspecialchars($item['category']); ?></p>
-                            <p class="price">Price: <?php echo formatCurrency($item['price']); ?></p>
-                            <p class="status">Status: <?php echo getStockStatus($item['stock']); ?></p>
+        <section class="report-card">
+            <?php foreach($students as $student): ?>
+                        <div class="student-card">
+                            <h3><?php echo htmlspecialchars($student['name']); ?></h3>
+                            <p class="subject">Category:<?php echo htmlspecialchars($student['subject']); ?></p>
+                            <p class="grade">Grade: <?php echo $student['grade']; ?></p>
+                            <p class="status">Status: <?php echo getGradeStatus($student['grade']); ?></p>
                         </div>
                         <?php endforeach; ?>
-                    <?php endif; ?>
-        </section>
-        <section class="system-logs">
-            <?php
-            $checks = 0;
-            $max_checks = 3;
-            while($checks < $max_checks){
-                $checks++;
-                echo "Diagnostic $checks: <span class='status-diag'>Pass</span>";
-            }
-            ?>
         </section>
     </main>
     <footer>
-        <p>&copy; <?php date("Y"); ?></p>
+        <p>&copy; </p>
+        <p>Total Students Evaluated: <?php echo count($students); ?></p>
+        <p>Current Time: <?php echo date("H:i:s"); ?></p>
     </footer>
 </body>
 </html>
