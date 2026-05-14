@@ -35,15 +35,15 @@ $products = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1, device-width=width">
-    <title>Week Two | Logic & Data Stuctures</title>
+    <title>Week Two, Lab 1</title>
     <meta name="description" content="This week we are looking at arrays and functions">
     <meta name="robots" content="noindex, nofollow">
-    <!-- CSS link -->
+    <!-- CSS link here -->
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <header>
-        <h1>Inventory Dashboard</h1>
+        <h1>Report Card</h1>
     </header>
     <main>
         <section class="product-grid">
@@ -53,7 +53,7 @@ $products = [
                     <?php foreach($products as $item): ?>
                         <div class="product-card">
                             <h3><?php htmlspecialchars($item['name']); ?></h3>
-                            <p class="category">Category:<?php htmlspecialchars($item['category']); ?></p>
+                            <p class="category">Category:<?php echo htmlspecialchars($item['category']); ?></p>
                             <p class="price">Price: <?php echo formatCurrency($item['price']); ?></p>
                             <p class="status">Status: <?php echo getStockStatus($item['stock']); ?></p>
                         </div>
@@ -72,7 +72,7 @@ $products = [
         </section>
     </main>
     <footer>
-        <p>&copy; <?php data("Y"); ?></p>
+        <p>&copy; <?php echo date("Y"); ?></p>
     </footer>
 </body>
 </html>
