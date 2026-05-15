@@ -32,7 +32,7 @@ function getGradeStatus($score){
     <title>Week Two, Lab 1</title>
     <meta name="description" content="This week we are looking at arrays and functions">
     <meta name="robots" content="noindex, nofollow">
-    <!-- CSS link here -->
+    <!-- CSS link here (NOT NEEDED FOR LAB!!!) -->
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
