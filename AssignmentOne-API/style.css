@@ -42,7 +42,6 @@ main {
 
 /* ── Cat Card ── */
 .cat-card {
-    background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     overflow: hidden;
@@ -74,11 +73,6 @@ figcaption {
     color: #555;
     padding: 10px;
     background-color: #fff;
-}
-
-/* UPDATED: rounds bottom corners of image when no breed name exists */
-.cat-card--no-breed img {
-    border-radius: 0 0 12px 12px;
 }
 
 /* ── Footer & Pagination ── */
