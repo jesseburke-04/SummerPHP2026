@@ -4,19 +4,22 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Browse popular and random cats using The Cat API">
-        <meta name="author" content="Your Name Here">
-        <title>Cat Browser</title>
+        <meta name="robots" content="noindex, nofollow">
+        <title>Cat Gallery</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <header>
-            <h1>Random Cats — Page <?php echo $lessonActivePage; ?></h1>
+            <h1>Cat Gallery — Page <?php echo $lessonActivePage; ?></h1>
         </header>
 
         <main>
             <section class="cat-grid">
                 <?php foreach ($lessonCatRecords as $singleCatObject): ?>
-                    <?php $breedName = $singleCatObject->breeds[0]->name ?? null; ?>
+                    <?php 
+                        $rawBreed = $singleCatObject->breeds[0]->name ?? null;
+                        $breedName = !empty($rawBreed) ? $rawBreed : null;
+                    ?>
 
                     <!-- UPDATED: added conditional class to article -->
                     <article class="cat-card <?php echo $breedName ? 'cat-card--has-breed' : 'cat-card--no-breed'; ?>">
