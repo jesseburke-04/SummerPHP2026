@@ -19,6 +19,8 @@
                     <?php 
                         $rawBreed = $singleCatObject->breeds[0]->name ?? null;
                         $breedName = !empty($rawBreed) ? $rawBreed : null;
+
+                        var_dump($singleCatObject->breeds);
                     ?>
 
                     <!-- UPDATED: added conditional class to article -->
