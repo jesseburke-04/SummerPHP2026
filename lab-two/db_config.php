@@ -1,10 +1,19 @@
 <?php
 // db_config.php
+/define the address where the database server lives
+    define("DB_HOST", "172.31.22.43");
+    //define the name of the database that we will be using
+    define("DB_NAME", "Jesse200657285"); //replace with your info
+    //define the username for your database
+    define("DB_USER", "Jesse200657285"); //replace with your info
+    //define the password for the user
+    define("DB_PASSWORD", "mN1VnXx5l8"); //replace with your info
+
 class BookDatabase {
-    private $host = "localhost";
-    private $db   = "bookstore_db";
-    private $user = "root";
-    private $pass = ""; 
+    private $host = DB_HOST;
+    private $db   = DB_NAME;
+    private $user = DB_USER;
+    private $pass = DB_PASSWORD;
     private $pdoInstance = null;
 
     public function getConnection() {
