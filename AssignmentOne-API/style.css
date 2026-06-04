@@ -46,7 +46,8 @@ main {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     overflow: hidden;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    align-self: start;
+    display: flex;
+    flex-direction: column;
 }
 
 .cat-card:hover {
@@ -58,6 +59,7 @@ main {
 figure {
     display: flex;
     flex-direction: column;
+    flex: 1;
     margin: 0;
     padding: 0;
     line-height: 0;
@@ -66,9 +68,10 @@ figure {
 /* ── Cat Image ── */
 .cat-card img {
     width: 100%;
-    height: 220px;
+    flex: 1;
     object-fit: cover;
     display: block;
+    min-height: 220px;
 }
 
 /* ── Figcaption (Breed Name) ── */
@@ -93,21 +96,4 @@ footer {
 }
 
 .pagination {
-    display: inline-flex;
-    gap: 12px;
-}
-
-.pagination a {
-    text-decoration: none;
-    padding: 10px 24px;
-    background-color: #ff6841;
-    color: #fff;
-    border-radius: 8px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    transition: background-color 0.2s ease;
-}
-
-.pagination a:hover {
-    background-color: #e0522e;
-}
+    display: inline
