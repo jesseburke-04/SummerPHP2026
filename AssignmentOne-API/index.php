@@ -6,5 +6,5 @@
     $lessonHandlerInstance = new CatHandler(CAT_BASE_URL, CAT_API_KEY);
     $lessonCatRecords = $lessonHandlerInstance->fetchCats($lessonActivePage);
 
-    require_once "views/cats.view.php";
+    require_once "cats/cats.view.php";
 ?>
