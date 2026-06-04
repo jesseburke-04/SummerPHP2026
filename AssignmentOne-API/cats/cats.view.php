@@ -21,17 +21,15 @@
                         $breedName = !empty($rawBreed) ? $rawBreed : null;
                     ?>
 
-                    <!-- UPDATED: added conditional class to article -->
-                    <article class="cat-card <?php echo $breedName ? 'cat-card--has-breed' : 'cat-card--no-breed'; ?>">
-                        <figure>
-                            <img
-                                src="<?php echo htmlspecialchars($singleCatObject->url ?? ''); ?>"
-                                alt="A cat"
-                            >
-                            <?php if ($breedName): ?>
+                    <article class="cat-card">
+                        <?php if ($breedName): ?>
+                             <figure>
+                                <img src="<?php echo htmlspecialchars($singleCatObject->url ?? ''); ?>" alt="A cat">
                                 <figcaption><?php echo htmlspecialchars($breedName); ?></figcaption>
-                            <?php endif; ?>
-                        </figure>
+                            </figure>
+                        <?php else: ?>
+                            <img src="<?php echo htmlspecialchars($singleCatObject->url ?? ''); ?>" alt="A cat">
+                        <?php endif; ?>
                     </article>
                 <?php endforeach; ?>
             </section>

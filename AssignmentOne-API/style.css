@@ -85,10 +85,6 @@ figcaption:empty {
     padding: 0;
 }
 
-figure { outline: 2px solid red; }
-figcaption { outline: 2px solid blue; }
-.cat-card { outline: 2px solid green; }
-
 /* ── Footer & Pagination ── */
 footer {
     text-align: center;
