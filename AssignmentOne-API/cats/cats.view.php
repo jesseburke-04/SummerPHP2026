@@ -16,16 +16,16 @@
         <main>
             <section class="cat-grid">
                 <?php foreach ($lessonCatRecords as $singleCatObject): ?>
-                    <article class="cat-card">
+                    <?php $breedName = $singleCatObject->breeds[0]->name ?? null; ?>
+
+                    <!-- UPDATED: added conditional class to article -->
+                    <article class="cat-card <?php echo $breedName ? 'cat-card--has-breed' : 'cat-card--no-breed'; ?>">
                         <figure>
                             <img
                                 src="<?php echo htmlspecialchars($singleCatObject->url ?? ''); ?>"
                                 alt="A cat"
                             >
-                            <?php
-                                $breedName = $singleCatObject->breeds[0]->name ?? null;
-                                if ($breedName):
-                            ?>
+                            <?php if ($breedName): ?>
                                 <figcaption><?php echo htmlspecialchars($breedName); ?></figcaption>
                             <?php endif; ?>
                         </figure>
