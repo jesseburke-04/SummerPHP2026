@@ -18,13 +18,13 @@ class BookDatabase {
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
             // LAB TASK #1: Review the fetch mode configuration below. 
             // Does it match how index.php expects to read the data?
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, 
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ, 
         ];
 
         try {
             // LAB TASK #2: There is a critical syntax error on the line below 
             // preventing the PDO instance from initializing. Fix it.
-            $this->pdoInstance = PDO($dsn, $this->user, $this->pass, $options);
+            $this->pdoInstance = new PDO($dsn, $this->user, $this->pass, $options);
             return $this->pdoInstance;
         } catch (PDOException $e) {
             die("Connection failed: " . $e->getMessage());

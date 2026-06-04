@@ -38,7 +38,7 @@ $books = $repo->getBooksByGenre($selectedGenre);
                         <td><?php echo htmlspecialchars($book->author); ?></td>
                         <td><?php echo htmlspecialchars($book->published_year); ?></td>
                     </tr>
-                <?php end<?php foreach; ?>
+                <?php endforeach; ?>
             </tbody>
         </table>
     <?php endif; ?>
