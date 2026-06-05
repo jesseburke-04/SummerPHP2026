@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Browse random popular cats MEMEs, using The Cat API">
+        <meta name="description" content="Browse popular and random cats using The Cat API">
         <meta name="robots" content="noindex, nofollow">
         <title>Cat Gallery</title>
         <link rel="stylesheet" href="style.css">
@@ -16,18 +15,19 @@
  
         <main>
             <section class="cat-grid">
-                <?php foreach ($cats as $cat): ?>
-                    <?php
-                        $breedName = !empty($cat->breeds[0]->name) ? $cat->breeds[0]->name : null;
-                        $altText   = $breedName ? htmlspecialchars($breedName) : 'A cat';
-                    ?>
-                    <article class="cat-card">
-                        <figure>
-                            <img src="<?php echo htmlspecialchars($cat->url ?? ''); ?>" alt="<?php echo $altText; ?>">
-                            <figcaption><?php echo $breedName ? htmlspecialchars($breedName) : ''; ?></figcaption>
-                        </figure>
-                    </article>
-                <?php endforeach; ?>
+                <?php
+                    foreach($cats as $singleCatObject){
+                        $validatedBreed = htmlspecialchars($singleCatObject->breeds[0]->name ?? "");
+                        $validatedUrl = htmlspecialchars($singleCatObject->url ?? "");
+                        $altText = !empty($validatedBreed) ? $validatedBreed : "A cat";
+                ?>
+                <article class="cat-card">
+                    <div>
+                        <img src="<?php echo $validatedUrl; ?>" alt="<?php echo $altText; ?>">
+                        <p><?php echo $validatedBreed; ?></p>
+                    </div>
+                </article>
+                <?php } ?>
             </section>
         </main>
  
@@ -37,7 +37,7 @@
                     $prevPage = max(0, $page - 1);
                     $nextPage = $page + 1;
  
-                    if ($page > 0) {
+                    if($page > 0){
                         echo "<a href='?page={$prevPage}'>&laquo; Previous</a>";
                     }
                     echo "<a href='?page={$nextPage}'>Next &raquo;</a>";

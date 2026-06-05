@@ -47,13 +47,11 @@ main {
     overflow: hidden;
 }
  
-/* ── Figure ── */
-figure {
+/* ── Cat Card Inner Div ── */
+.cat-card div {
     display: flex;
     flex-direction: column;
     height: 100%;
-    margin: 0;
-    padding: 0;
 }
  
 /* ── Cat Image ── */
@@ -64,8 +62,8 @@ figure {
     display: block;
 }
  
-/* ── Figcaption (Breed Name) ── */
-figcaption {
+/* ── Breed Name ── */
+.cat-card p {
     text-align: center;
     font-size: 1rem;
     color: #555;
@@ -73,7 +71,7 @@ figcaption {
     background-color: #fff;
 }
  
-figcaption:empty {
+.cat-card p:empty {
     display: none;
     padding: 0;
 }
