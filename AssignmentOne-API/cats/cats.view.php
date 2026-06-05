@@ -27,6 +27,7 @@ Each cat is displayed as a card with an image and a breed name.
                         $altText = !empty($validatedBreed) ? $validatedBreed : "A cat";
                 ?>
                 <article class="cat-card">
+                // Couldn't find a better semantic element that we have learned yet. 
                     <div>
                         <img src="<?php echo $validatedUrl; ?>" alt="<?php echo $altText; ?>">
                         <p><?php echo $validatedBreed; ?></p>
