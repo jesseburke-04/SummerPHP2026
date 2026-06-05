@@ -1,3 +1,7 @@
+/*
+This file is responsible for displaying the cat gallery. It loops through the cat data fetched by CatHandler.php. 
+Each cat is displayed as a card with an image and a breed name.
+*/
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -15,6 +19,7 @@
  
         <main>
             <section class="cat-grid">
+                // This loops through each cat and creates a card for it.
                 <?php
                     foreach($cats as $singleCatObject){
                         $validatedBreed = htmlspecialchars($singleCatObject->breeds[0]->name ?? "");
