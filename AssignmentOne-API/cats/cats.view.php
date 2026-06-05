@@ -1,7 +1,5 @@
-/*
-This file is responsible for displaying the cat gallery. It loops through the cat data fetched by CatHandler.php. 
-Each cat is displayed as a card with an image and a breed name.
-*/
+<!-- This file is responsible for displaying the cat gallery. It loops through the cat data fetched by CatHandler.php. 
+Each cat is displayed as a card with an image and a breed name. -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -19,7 +17,7 @@ Each cat is displayed as a card with an image and a breed name.
  
         <main>
             <section class="cat-grid">
-                // This loops through each cat and creates a card for it.
+                <!-- This loops through each cat and creates a card for it. -->
                 <?php
                     foreach($cats as $singleCatObject){
                         $validatedBreed = htmlspecialchars($singleCatObject->breeds[0]->name ?? "");
@@ -27,7 +25,7 @@ Each cat is displayed as a card with an image and a breed name.
                         $altText = !empty($validatedBreed) ? $validatedBreed : "A cat";
                 ?>
                 <article class="cat-card">
-                // Couldn't find a better semantic element that we have learned yet. 
+                <!-- Couldn't find a better semantic element that we have learned yet. -->
                     <div>
                         <img src="<?php echo $validatedUrl; ?>" alt="<?php echo $altText; ?>">
                         <p><?php echo $validatedBreed; ?></p>
