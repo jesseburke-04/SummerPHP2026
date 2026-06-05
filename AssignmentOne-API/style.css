@@ -4,13 +4,13 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+ 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f4f4;
     color: #333;
 }
-
+ 
 /* ── Header ── */
 header {
     text-align: center;
@@ -18,20 +18,20 @@ header {
     background-color: #fff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
-
+ 
 header h1 {
     font-size: 2rem;
     color: #2c2c2c;
     letter-spacing: 1px;
 }
-
+ 
 /* ── Main Layout ── */
 main {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
-
+ 
 /* ── Cat Grid ── */
 .cat-grid {
     display: grid;
@@ -39,61 +39,67 @@ main {
     gap: 24px;
     padding: 20px 0;
 }
-
+ 
 /* ── Cat Card ── */
 .cat-card {
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    display: flex;
-    flex-direction: column;
 }
-
-.cat-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
+ 
 /* ── Figure ── */
 figure {
     display: flex;
     flex-direction: column;
-    flex: 1;
+    height: 100%;
     margin: 0;
     padding: 0;
-    line-height: 0;
 }
-
+ 
 /* ── Cat Image ── */
 .cat-card img {
     width: 100%;
-    flex: 1;
+    height: 220px;
     object-fit: cover;
     display: block;
-    min-height: 220px;
 }
-
+ 
 /* ── Figcaption (Breed Name) ── */
 figcaption {
-    line-height: normal;
     text-align: center;
     font-size: 1rem;
     color: #555;
     padding: 10px;
     background-color: #fff;
 }
-
+ 
 figcaption:empty {
     display: none;
     padding: 0;
 }
-
+ 
 /* ── Footer & Pagination ── */
 footer {
     text-align: center;
     padding: 30px 0;
 }
-
+ 
 .pagination {
-    display: inline
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+ 
+.pagination a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2c2c2c;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+ 
+.pagination a:hover {
+    background-color: #555;
+}
