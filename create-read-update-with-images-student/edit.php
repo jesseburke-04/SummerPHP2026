@@ -1,5 +1,26 @@
 <?php
+    $pageTitle = "Edit users";
+    $pageDesc = "this page lets us edit the user records";
+    require_once 'includes/header.php';
+    require_once 'includes/database.php';
+    require_once 'includes/user.php';
+    $db = (new Database())->connect();
+    $user = new User($db);
+    // Fall back protection: bounce users if an ID is missing or invalid.
+    $id = $_GET['id'] ?? null;
+    if(!$id){
+        header("Location: index.php");
+        exit;
+    }
+    $u = $user->getById('id');
+    // If the database returns false, the record does not exist.
+    if(!$u){
+        header("Location: index.php");
+        exit;
+    }
+    $oldImage = $u['image'];
 
+    if($_SERVER['REQUEST_METHOD'])
 ?>
 <section class="lesson-masthead">
     <h1>Create Read & Update with Images</h1>
@@ -25,4 +46,4 @@
     </form>
     <a class="btn btn-success" href="index.php">Back</a>
 </section>
-<?php  ?>
+<?php require './includes/footer.php'; ?>

@@ -1,5 +1,12 @@
 <?php
-
+    $pageTitle = "View users";
+    $pageDesc = "this page lets us view the user records";
+    require_once 'includes/header.php';
+    require_once 'includes/database.php';
+    require_once 'includes/user.php';
+    $db = (new Database())->connect();
+    $user = new User($db);
+    $users = $user->getAll(); // Fetch all users from the database.
 ?>
 <section class="lesson-masthead">
     <h1>CRUD with Images</h1>
@@ -15,22 +22,22 @@
             <th>Image</th>
             <th>Actions</th>
         </tr>
-        <?php  ?>
+        <?php foreach($users as $u): ?>
             <tr>
-                <td><?=  ?></td>
-                <td><?=  ?></td>
-                <td><?=  ?></td>
+                <td><?= $u['id'] ?></td>
+                <td><?= htmlspecialchars($u['name']) ?></td>
+                <td><?= htmlspecialchars($u['email']) ?></td>
                 <td>
-                    <?php  ?>
-                        <img src="uploads/<?=  ?>" alt="User Image" style="max-width: 100px;">
-                    <?php  ?>
+                    <?php if(!empty($u['image'])): ?>
+                        <img src="uploads/<?= htmlspecialchars($u['image']) ?>" alt="User Image" style="max-width: 100px;">
+                    <?php endif; ?>
                 </td>
                 <td>
-                    <a class="btn btn-warning" href="edit.php?id=<?=  ?>">Edit</a>
-                    <a class="btn btn-danger" href="delete.php?id=<?=  ?>" onclick="return confirm('Are you sure?');">Delete</a>
+                    <a class="btn btn-warning" href="edit.php?id=<?= $u['id'] ?>">Edit</a>
+                    <a class="btn btn-danger" href="delete.php?id=<?= $u['id'] ?>" onclick="return confirm('Are you sure?');">Delete</a>
                 </td>
             </tr>
-        <?php  ?>
+        <?php endforeach; ?>
     </table>
 </section>
-<?php  ?>
+<?php require './includes/footer.php'; ?>
