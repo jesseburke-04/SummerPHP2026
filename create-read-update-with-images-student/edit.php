@@ -20,7 +20,22 @@
     }
     $oldImage = $u['image'];
 
-    if($_SERVER['REQUEST_METHOD'])
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $imageName = $oldImage;
+        if(!empty($_FILES['image']['name']) && $_FILES['image']['error'] === UPLOAD_ERR_OK){
+            $imageName = time() . '_' . basename($_FILES['image']['name']);
+            move_uploaded_file($_FILES['image']['tmp_name'], "uploads/" . $imageName);
+            // delete the old physical asset file if it exists to keep the storage clean.
+            if($oldImage && file_exists("uploads/$oldImage")){
+                unlink("uploads/$oldImage");
+            }
+        }
+        $user->update($id, $name, $email, $imageName);
+        header("Location: index.php");
+        exit;
+    }
 ?>
 <section class="lesson-masthead">
     <h1>Create Read & Update with Images</h1>
@@ -29,17 +44,17 @@
     <h2>Edit User</h2>
     <form method="post" enctype="multipart/form-data">
         <label class="form-label">Name:</label>
-        <input class="form-control" type="text" name="name" value="<?=  ?>" required><br>
+        <input class="form-control" type="text" name="name" value="<?= htmlspecialchars($u['name']) ?>" required><br>
         <label class="form-label">Email:</label>
-        <input class="form-control" type="email" name="email" value="<?=  ?>" required><br>
-        
+        <input class="form-control" type="email" name="email" value="<?= htmlspecialchars($u['email']) ?>" required><br>
+
         <label class="form-label">Current Image:</label><br>
-        <?php  ?>
-            <img src="uploads/<?=  ?>" style="max-width: 150px;"><br>
-        <?php  ?>
+        <?php if(!empty($u['image'])): ?>
+            <img src="uploads/<?= htmlspecialchars($u['image']) ?>" style="max-width: 150px;"><br>
+        <?php else: ?>
             <p><small>No image uploaded.</small></p>
-        <?php  ?>
-        
+        <?php endif; ?>
+
         <label class="form-label">New Image:</label>
         <input class="form-control" type="file" name="image" accept="image/*"><br><br>
         <button class="btn btn-primary" type="submit">Update</button>
