@@ -15,7 +15,7 @@ body{
 }
 
 .menu-header h1{
-    font-family: 'Brush Script MT', cursive;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
     font-size: 3em;
     letter-spacing: 1px;
@@ -28,6 +28,7 @@ body{
 
 .menu-header p{
     margin: 0;
+    font-family: 'Times New Roman', Times, serif
     font-style: italic;
 }
 
