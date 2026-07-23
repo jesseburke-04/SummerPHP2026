@@ -1,0 +1,129 @@
+/* ===== Basic page setup ===== */
+body{
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fdf6ec;
+    color: #333333;
+}
+
+/* ===== Header (top banner) ===== */
+.menu-header{
+    background-color: #b3261e;
+    color: #ffffff;
+    text-align: center;
+    padding: 30px 10px;
+}
+
+.menu-header h1{
+    margin: 0 0 5px 0;
+}
+
+.menu-header p{
+    margin: 0;
+}
+
+/* ===== Main content area ===== */
+main{
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+/* ===== Form container ===== */
+.pizza-form{
+    background-color: #ffffff;
+    border: 1px solid #d4a373;
+    border-radius: 8px;
+    padding: 20px 25px;
+}
+
+.pizza-form h2{
+    color: #b3261e;
+    text-align: center;
+}
+
+.pizza-form h3{
+    color: #2e7d32;
+    border-bottom: 2px solid #d4a373;
+    padding-bottom: 5px;
+}
+
+/* ===== Form fields ===== */
+label{
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+input,
+select{
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+/* ===== Submit button ===== */
+.submit-button{
+    display: block;
+    width: 100%;
+    background-color: #2e7d32;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 12px;
+    margin-top: 20px;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+.submit-button:hover{
+    background-color: #245e28;
+}
+
+/* ===== Thank you / completed order ===== */
+.completed-order{
+    background-color: #ffffff;
+    border: 1px solid #d4a373;
+    border-radius: 8px;
+    padding: 25px;
+    text-align: center;
+}
+
+.thank-you-message{
+    background-color: #e6f4ea;
+    border: 1px solid #2e7d32;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.thank-you-message h2{
+    color: #2e7d32;
+    margin-top: 0;
+}
+
+.order-again{
+    display: inline-block;
+    background-color: #b3261e;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+.order-again:hover{
+    background-color: #8f1d17;
+}
+
+/* ===== Footer ===== */
+.site-footer{
+    background-color: #333333;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+}
