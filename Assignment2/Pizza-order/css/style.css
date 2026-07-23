@@ -15,11 +15,20 @@ body{
 }
 
 .menu-header h1{
+    font-family: 'Brush Script MT', cursive;
+    font-weight: bold;
+    font-size: 3em;
+    letter-spacing: 1px;
     margin: 0 0 5px 0;
+}
+
+.menu-header h1::before{
+    content: "🍕 ";
 }
 
 .menu-header p{
     margin: 0;
+    font-style: italic;
 }
 
 /* ===== Main content area ===== */
@@ -35,14 +44,17 @@ main{
     border: 1px solid #d4a373;
     border-radius: 8px;
     padding: 20px 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .pizza-form h2{
+    font-family: Georgia, 'Times New Roman', serif;
     color: #b3261e;
     text-align: center;
 }
 
 .pizza-form h3{
+    font-family: Georgia, 'Times New Roman', serif;
     color: #2e7d32;
     border-bottom: 2px solid #d4a373;
     padding-bottom: 5px;
@@ -64,6 +76,12 @@ select{
     border-radius: 4px;
     box-sizing: border-box;
     font-size: 1em;
+}
+
+/* ===== Selected toppings ===== */
+#toppings option:checked{
+    background-color: #b3261e;
+    color: #ffffff;
 }
 
 /* ===== Submit button ===== */
@@ -91,6 +109,7 @@ select{
     border-radius: 8px;
     padding: 25px;
     text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .thank-you-message{
@@ -102,6 +121,7 @@ select{
 }
 
 .thank-you-message h2{
+    font-family: Georgia, 'Times New Roman', serif;
     color: #2e7d32;
     margin-top: 0;
 }
@@ -120,7 +140,7 @@ select{
 }
 
 /* ===== Footer ===== */
-.menu-footer{
+.site-footer{
     background-color: #333333;
     color: #ffffff;
     text-align: center;
