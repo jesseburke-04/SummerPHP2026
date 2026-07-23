@@ -1,10 +1,10 @@
 <?php
     class Database{
         // Replace these fake names with my own values.
-        private $host = "your host name";
-        private $db_name = "your database name";
-        private $username = "your username";
-        private $password = "your password";
+        private $host = "172.31.22.43";
+        private $db_name = "Jesse200657285";
+        private $username = "Jesse200657285";
+        private $password = "mN1VnXx5l8";
         public $conn;
 
         /**
