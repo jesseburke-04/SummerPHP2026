@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 /* ===== Basic page setup ===== */
 body{
     margin: 0;
@@ -36,14 +40,16 @@ body{
 
 /* ===== Main content area ===== */
 main{
-    flex: 1 1 auto;
-    max-width: 800px;
-    margin: 30px auto;
-    padding: 0 15px;
+    flex: 1;
+    width: 100%;
+    padding: 30px 15px;
+    box-sizing: border-box;
 }
 
 /* ===== Form container ===== */
 .pizza-form{
+    max-width: 800px;
+    margin: 0 auto;
     background-color: #ffffff;
     border: 1px solid #d4a373;
     border-radius: 8px;
