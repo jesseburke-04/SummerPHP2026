@@ -1,26 +1,23 @@
+// The connection file.
 <?php
     class Database{
-        // Replace these fake names with my own values.
+        // The connection information for mysql and file zilla.
         private $host = "172.31.22.43";
         private $db_name = "Jesse200657285";
         private $username = "Jesse200657285";
         private $password = "mN1VnXx5l8";
         public $conn;
-
-        /**
-        * Establish a database connection using PDO.
-        * @return PDO|null
-        */
+        // Created a function that connect my code to the database.
         public function connect(){
             $this->conn = null;
             try{
                 $this->conn = new PDO("mysql:host={$this->host};dbname={$this->db_name};charset=utf8mb4", $this->username, $this->password);
-                // Set error mode to Exception so database errors throw catchable errors.
+                // Best practive to send a message if an error occurs.
                 $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                // Set default fetch mode to associative arrays.
+                // Sets the default results to associative arrays as learned in class.
                 $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
             }catch(PDOException $e){
-                // write a comment about this and the above lines.
+                // This catches the error if the connection fails..
                 echo "Connection Error: " . $e->getMessage();
             }
             return $this->conn;

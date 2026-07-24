@@ -1,8 +1,8 @@
+/* The styling sheet for my pizzeria form */
 *{
     box-sizing: border-box;
 }
 
-/* ===== Basic page setup ===== */
 body{
     margin: 0;
     font-family: Arial, sans-serif;
@@ -13,7 +13,7 @@ body{
     flex-direction: column;
 }
 
-/* ===== Header (top banner) ===== */
+/* The header */
 .menu-header{
     background-color: #b3261e;
     color: #ffffff;
@@ -28,6 +28,7 @@ body{
     margin: 0 0 5px 0;
 }
 
+/* Add this for fun lol */
 .menu-header h1::before{
     content: "🍕 ";
 }
@@ -38,7 +39,7 @@ body{
     font-style: italic;
 }
 
-/* ===== Main content area ===== */
+/* The main content area for the form */
 main{
     flex: 1;
     width: 100%;
@@ -46,7 +47,6 @@ main{
     box-sizing: border-box;
 }
 
-/* ===== Form container ===== */
 .pizza-form{
     max-width: 800px;
     margin: 0 auto;
@@ -69,7 +69,7 @@ main{
     padding-bottom: 5px;
 }
 
-/* ===== Form fields ===== */
+/* The sections in the form */
 label{
     display: block;
     margin-top: 12px;
@@ -87,13 +87,12 @@ select{
     font-size: 1em;
 }
 
-/* ===== Selected toppings ===== */
+/* Adding a fun effect for when the user presses a topping. */
 #toppings option:checked{
     background-color: #b3261e;
     color: #ffffff;
 }
 
-/* ===== Submit button ===== */
 .submit-button{
     display: block;
     width: 100%;
@@ -110,7 +109,7 @@ select{
     background-color: #245e28;
 }
 
-/* ===== Thank you / completed order ===== */
+/* The thank you message section */
 .completed-order{
     background-color: #ffffff;
     border: 1px solid #d4a373;
@@ -146,7 +145,7 @@ select{
     background-color: #8f1d17;
 }
 
-/* ===== Footer ===== */
+/* The footer */
 .menu-footer{
     background-color: #333333;
     color: #ffffff;

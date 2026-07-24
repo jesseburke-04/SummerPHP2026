@@ -1,14 +1,14 @@
 <?php
+    // Creating variables for the header.php and including the required files.
     $pageTitle = "Burke's Oven";
     $pageDescription = "Order your favorite pizza online for delivery or pickup.";
     require_once 'includes/header.php';
     require_once 'includes/Database.php';
     require_once 'includes/PizzaOrder.php';
-
     $orderComplete = false;
     $customerName = '';
 
-    // Process the form when a POST request is sent.
+    // Checks if the form was submitted and processes the information.
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
         // Store the submitted values into variables.
         $name = $_POST['name'];
@@ -17,14 +17,13 @@
         $address = $_POST['address'];
         $size = $_POST['size'];
         $crust = $_POST['crust'];
-        // Put toopings in an array for mutliple selection.
+        // Store toppings in an array and use implode() to convert them into a string.
         $toppings = isset($_POST['toppings']) ? implode(', ', $_POST['toppings']) : 'None';
         $deliveryMethod = $_POST['delivery_method'];
-
+        // connecting to the database and creating objects.
         $db = (new Database())->connect();
         $order = new PizzaOrder($db);
         $order->create($name, $email, $phone, $address, $size, $crust, $toppings, $deliveryMethod);
-
         $orderComplete = true;
         $customerName = $name;
     }
@@ -34,6 +33,7 @@
     <p>Fast, fresh and firey pizza, made for you.</p>
 </header>
 <main>
+    // Created an if statement to display the form or the thank you message.
     <?php if($orderComplete): ?>
         <section class="completed-order">
             <div class="thank-you-message">
@@ -48,23 +48,19 @@
             <form method="post">
                 <section>
                     <h3>Contact Information</h3>
-
                     <label for="name">Full Name:</label>
                     <input type="text" id="name" name="name" required>
-
                     <label for="email">Email Address:</label>
                     <input type="email" id="email" name="email" required>
-
                     <label for="phone">Phone Number:</label>
                     <input type="tel" id="phone" name="phone" required>
-
                     <label for="address">Delivery Address:</label>
                     <input type="text" id="address" name="address" required>
                 </section>
 
                 <section>
                     <h3>Pizza Builder</h3>
-
+                    // Use dropdown selection to display the options.
                     <label for="size">Pizza Size:</label>
                     <select id="size" name="size" required>
                         <option value="">Choose a size</option>
@@ -94,7 +90,7 @@
                         <option value="Extra Cheese">Extra Cheese</option>
                     </select>
                     <script>
-                        // Let the user click a topping to select it on or off.
+                        // Using Javascript to let the user select multiple options.
                         document.getElementById('toppings').addEventListener('mousedown', function(event){
                             event.preventDefault();
                             if(event.target.tagName === 'OPTION'){
@@ -102,14 +98,12 @@
                             }
                         });
                     </script>
-
                     <label for="delivery_method">Delivery Method:</label>
                     <select id="delivery_method" name="delivery_method" required>
                         <option value="Delivery" selected>Delivery</option>
                         <option value="Pickup">Pickup</option>
                     </select>
                 </section>
-
                 <button class="submit-button" type="submit">Place Order</button>
             </form>
         </section>

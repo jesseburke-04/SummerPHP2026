@@ -1,3 +1,4 @@
+// This file handles the database information in the orders.
 <?php
     class PizzaOrder{
         private $conn;
@@ -12,20 +13,17 @@
         public $toppings;
         public $deliveryMethod;
 
-        /*
-          Constructor accepts the active PDO connection object.
-        */
+        // Used a constructor to recieve the database connection.
         public function __construct($db){
             $this->conn = $db;
         }
-
-        /*
-          Create a new table with the pizza order values as placeholders.
-        */
+        // Used the create function to receive the informatino from the pizza orders and put it into the database.
         public function create($name, $email, $phone, $address, $size, $crust, $toppings, $deliveryMethod){
             $sql = "INSERT INTO {$this->table} (name, email, phone, address, size, crust, toppings, delivery_method)
                     VALUES (:name, :email, :phone, :address, :size, :crust, :toppings, :delivery_method)";
+            // This prevents SQL injection attacks (common practice).
             $stmt = $this->conn->prepare($sql);
+            // This runs the SQL command and send the actual values. 
             return $stmt->execute([
                 ':name' => $name,
                 ':email' => $email,

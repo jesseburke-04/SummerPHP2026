@@ -1,4 +1,5 @@
-<!Doctype html>
+// The header for my template files, with the required metadata. 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
