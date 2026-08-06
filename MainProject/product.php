@@ -76,7 +76,6 @@
             <?php else: ?>
                 <div class="no-image">No Image</div>
             <?php endif; ?>
-            <figcaption><?php echo htmlspecialchars($p['name']); ?></figcaption>
         </figure>
         <div class="product-details">
             <h2><?php echo htmlspecialchars($p['name']); ?></h2>
