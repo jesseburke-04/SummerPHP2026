@@ -13,7 +13,7 @@
 <header class="site-header">
     <div class="header-top">
         <a class="logo" href="index.php">
-            // I added this icon for the logo because I thought it would match and that my last teacher Jessica taught me!
+            <!-- I added this icon for the logo because I thought it would match and that my last teacher Jessica taught me! -->
             <span class="material-symbols-outlined">shaved_ice</span>
             <h1>SugarRush</h1>
         </a>
