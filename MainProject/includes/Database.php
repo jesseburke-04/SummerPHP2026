@@ -1,11 +1,12 @@
 <?php
+    // This is the Database class file that handles the PDO connection to MySQL.
     class Database{
         private $host = "172.31.22.43";
         private $db_name = "Jesse200657285";
         private $username = "Jesse200657285";
         private $password = "mN1VnXx5l8";
         public $conn;
-
+        // This function connects to the database using PDO and returns the connection object.
         public function connect(){
             $this->conn = null;
             try{

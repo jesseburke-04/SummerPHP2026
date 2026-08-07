@@ -1,4 +1,5 @@
 <?php
+    // sets up the page title and description for the full inventory page.
     $pageTitle = "SugarRush -Full Product Inventory";
     $pageDescription = "Here are all of SugarRush's inventory products!";
     require_once 'includes/header.php';
@@ -8,7 +9,7 @@
     $database = new Database();
     $db = $database->connect();
     $product = new Product($db);
-
+    // handles the add new product form submission and validates the information.
     $showAddForm = isset($_GET['add']);
     if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_product'])){
         $name = trim($_POST['name']);
@@ -16,14 +17,15 @@
         $description = trim($_POST['description']);
         $price = $_POST['price'];
         $imageName = '';
-
         $product->create($name, $quantity, $description, $price, $imageName);
         header("Location: products.php");
         exit;
     }
+    // retrieves all products from the database to display on the page.
     $products = $product->getAll();
 ?>
 <section class="products-page">
+    <!-- Displays the full inventory of products in a grid format, including images, name, price, and more details link. -->
     <h2>Candy Catalog</h2>
     <?php if(empty($products)): ?>
         <p>Nothing has been added to the SugarRush inventory.</p>
@@ -47,6 +49,7 @@
     <?php if(!$showAddForm): ?>
         <a class="btn add-product-btn" href="products.php?add=1">Add a New Product!</a>
     <?php else: ?>
+        <!-- This is the add product form that allows the user to add a product to the inventory. -->
         <section class="product-form">
             <h2>Add a New Product</h2>
             <form method="post">

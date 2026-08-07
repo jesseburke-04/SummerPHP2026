@@ -1,3 +1,4 @@
+<!-- This is the header template files that includes everything on the website. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>

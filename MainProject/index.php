@@ -1,4 +1,5 @@
 <?php
+    // setting the title/description for the homepage and including the header file.
     $pageTitle = "SugarRush - Homepage";
     $pageDescription = "Welcome to SugarRush, the best online candy shop in Canada!";
     require_once 'includes/header.php';

@@ -3,8 +3,8 @@
     require_once 'includes/Product.php';
     require_once 'includes/User.php';
 
+    // reads the product ID from the URL and redirect to the products page if there is nothing to display
     $id = null;
-
     if(isset($_GET['id'])){
         $id = $_GET['id'];
     }
@@ -13,7 +13,7 @@
         header("Location: products.php");
         exit;
     }
-
+    // connects the database and loads the products.
     $database = new Database();
     $db = $database->connect();
     $product = new Product($db);
@@ -24,17 +24,17 @@
         header("Location: products.php");
         exit;
     }
-
+    // sets the page title and description for the product details page.
     $pageTitle = $p['name'] . " - SugarRush";
     $pageDescription = "The product details for " . ($p['name']) . ".";
     require_once 'includes/header.php';
 
     $loginError = "";
     $deleted = false;
-
+    // checks whether the page should show the edit or delete section based on the form submitted.
     $showEditSection = isset($_GET['edit']) || isset($_POST['update_product']);
     $showDeleteSection = isset($_GET['delete']) || isset($_POST['delete_product']);
-
+    // handles the updating of an exisitng product, while checking login credentials.
     if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_product'])){
         $userEmail = trim($_POST['user_email']);
         $userPassword = $_POST['user_password'];
@@ -51,7 +51,7 @@
             $loginError = "You have entered an incorrect email or password.";
         }
     }
-
+    // handles the deleting of an existing product, while checking login credentials.
     if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_product'])){
         $userEmail = trim($_POST['user_email']);
         $userPassword = $_POST['user_password'];
@@ -66,11 +66,13 @@
     }
 ?>
 <?php if($deleted): ?>
+    <!-- This section is displayed when a product has been deleted. -->
     <section class="single-product">
         <p class="success-message">You have successfully deleted this product.</p>
         <a class="btn-secondary" href="products.php">Back to All Products</a>
     </section>
 <?php else: ?>
+    <!-- This section displays the product details, including the image, name, price, quantity, description, as well as the update and delete links. -->
     <section class="single-product">
         <figure>
             <?php if(!empty($p['image'])): ?>
@@ -85,7 +87,7 @@
             <p class="stock">In Stock: <?php echo htmlspecialchars($p['quantity']); ?></p>
             <p class="description"><?php echo htmlspecialchars($p['description']); ?></p>
             <a class="btn-secondary" href="products.php">Back to All Products</a>
-            <!-- These two links are side by side, each leads to its own separate form below. -->
+            <!-- These links are side by side at the bottom of the product details, each leading to its own separate form. -->
             <div class="product-actions">
                 <a class="btn-edit" href="product.php?id=<?php echo $p['id']; ?>&edit=1">Update Product</a>
                 <a class="btn-delete" href="product.php?id=<?php echo $p['id']; ?>&delete=1">Delete Product</a>
@@ -96,6 +98,7 @@
     <?php if($loginError): ?><p class="error-messages"><?php echo htmlspecialchars($loginError); ?></p><?php endif; ?>
 
     <?php if($showEditSection): ?>
+        <!-- This section displays when the user wants to updated a product's information. -->
         <section class="product-form">
             <h2>Update Product</h2>
             <form method="post">
@@ -123,6 +126,7 @@
     <?php endif; ?>
 
     <?php if($showDeleteSection): ?>
+        <!-- This section displays when the user wants to delete a product, while checking login credentials. -->
         <section class="product-form">
             <h2>Delete Product</h2>
             <form method="post">
