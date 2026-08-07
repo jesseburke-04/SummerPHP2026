@@ -45,7 +45,7 @@
     <?php endif; ?>
 
     <?php if(!$showAddForm): ?>
-        <a class="btn" href="products.php?add=1">Add a New Product!</a>
+        <a class="btn add-product-btn" href="products.php?add=1">Add a New Product!</a>
     <?php else: ?>
         <section class="product-form">
             <h2>Add a New Product</h2>

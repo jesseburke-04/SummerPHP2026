@@ -224,6 +224,11 @@ main {
     color: #ffffff;
 }
 
+.add-product-btn {
+    display: inline-block;
+    margin-top: 2rem;
+}
+
 button {
     margin-top: 1rem;
 }
