@@ -1,6 +1,6 @@
 <?php
     $pageTitle = "SugarRush - Homepage";
-    $pageDescription = "Welcome to SugarRush, the best online candy shop in Canada.";
+    $pageDescription = "Welcome to SugarRush, the best online candy shop in Canada!";
     require_once 'includes/header.php';
 ?>
 <section class="hero">
@@ -10,7 +10,7 @@
 </section>
 
 <section class="about">
-    <h2>What We Do</h2>
+    <h2>About Us</h2>
     <p>SugarRush is an online shop for all your candy needs. We believe in providing the best selection of candy,
         while being avaliable at your finger tips!</p>
 </section>

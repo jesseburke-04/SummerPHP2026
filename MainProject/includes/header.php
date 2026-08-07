@@ -13,6 +13,7 @@
 <header class="site-header">
     <div class="header-top">
         <a class="logo" href="index.php">
+            // I added this icon for the logo because I thought it would match and that my last teacher Jessica taught me!
             <span class="material-symbols-outlined">shaved_ice</span>
             <h1>SugarRush</h1>
         </a>
@@ -21,9 +22,9 @@
     <nav class="site-nav">
         <ul>
             <li><a href="index.php">Home</a></li>
-            <li><a href="products.php">All Products</a></li>
-            <li><a href="register.php">Register</a></li>
-            <li><a href="register.php?manage=1">Edit User Info</a></li>
+            <li><a href="products.php">Candy Catalog</a></li>
+            <li><a href="register.php">Register Form</a></li>
+            <li><a href="register.php?edit=1">Edit User Info</a></li>
             <li><a href="register.php?delete=1">Delete User</a></li>
         </ul>
     </nav>

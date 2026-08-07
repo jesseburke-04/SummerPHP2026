@@ -13,13 +13,13 @@
 
         public function create($username, $email, $password, $confirmPassword){
             if($password !== $confirmPassword){
-                throw new Exception("Passwords do not match.");
+                throw new Exception("These passwords DON'T match.");
             }
             $checkSql = "SELECT id FROM {$this->table} WHERE email = :email";
             $checkStmt = $this->conn->prepare($checkSql);
             $checkStmt->execute([':email' => $email]);
             if($checkStmt->fetch()){
-                throw new Exception("An account with that email already exists.");
+                throw new Exception("An account with that email already exists. Please try again!");
             }
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
             $sql = "INSERT INTO {$this->table} (username, email, password) VALUES (:username, :email, :password)";
@@ -36,6 +36,7 @@
             $stmt = $this->conn->prepare($sql);
             $stmt->execute([':email' => $email]);
             $user = $stmt->fetch();
+            // I added password_verify, from the internet to check the hashed password against the input password becasue I didn't understand how to do it.
             if($user && password_verify($password, $user['password'])){
                 return $user;
             }

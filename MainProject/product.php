@@ -3,7 +3,12 @@
     require_once 'includes/Product.php';
     require_once 'includes/User.php';
 
-    $id = $_GET['id'] ?? null;
+    $id = null;
+
+    if(isset($_GET['id'])){
+        $id = $_GET['id'];
+    }
+
     if(!$id){
         header("Location: products.php");
         exit;
@@ -21,7 +26,7 @@
     }
 
     $pageTitle = $p['name'] . " - SugarRush";
-    $pageDescription = "Details and pricing for " . ($p['name']) . ".";
+    $pageDescription = "The product details for " . ($p['name']) . ".";
     require_once 'includes/header.php';
 
     $loginError = "";
@@ -43,7 +48,7 @@
             $product->update($id, $name, $quantity, $description, $price);
             $p = $product->getById($id);
         }else{
-            $loginError = "Incorrect email or password.";
+            $loginError = "You have entered an incorrect email or password.";
         }
     }
 
@@ -53,19 +58,16 @@
         $loggedInUser = $user->login($userEmail, $userPassword);
 
         if($loggedInUser){
-            if(!empty($p['image']) && file_exists("uploads/" . $p['image'])){
-                unlink("uploads/" . $p['image']);
-            }
             $product->delete($id);
             $deleted = true;
         }else{
-            $loginError = "Incorrect email or password.";
+            $loginError = "You have entered an incorrect email or password.";
         }
     }
 ?>
 <?php if($deleted): ?>
     <section class="single-product">
-        <p class="success-message">This product was deleted successfully.</p>
+        <p class="success-message">You have successfully deleted this product.</p>
         <a class="btn-secondary" href="products.php">Back to All Products</a>
     </section>
 <?php else: ?>
@@ -81,7 +83,7 @@
             <h2><?php echo htmlspecialchars($p['name']); ?></h2>
             <p class="price">$<?php echo htmlspecialchars($p['price']); ?></p>
             <p class="stock">In Stock: <?php echo htmlspecialchars($p['quantity']); ?></p>
-            <p class="description"><?php echo nl2br(htmlspecialchars($p['description'])); ?></p>
+            <p class="description"><?php echo htmlspecialchars($p['description']); ?></p>
             <a class="btn-secondary" href="products.php">Back to All Products</a>
             <!-- These two links are side by side, each leads to its own separate form below. -->
             <div class="product-actions">

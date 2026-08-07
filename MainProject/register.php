@@ -1,7 +1,7 @@
 <?php
     // Creating variables for the header.php and including the required files.
-    $pageTitle = "Register - SugarRush";
-    $pageDescription = "Create a new SugarRush account, or manage an existing account.";
+    $pageTitle = "SugarRush - Register";
+    $pageDescription = "Creating a new SugarRush account or editing an existing account.";
     require_once 'includes/header.php';
     require_once 'includes/Database.php';
     require_once 'includes/User.php';
@@ -10,8 +10,9 @@
     $db = $database->connect();
     $user = new User($db);
     $success = false;
+    $error = "";
 
-    $showEditSection = isset($_GET['manage']) || isset($_POST['update_user']);
+    $showEditSection = isset($_GET['edit']) || isset($_POST['update_user']);
     $showDeleteSection = isset($_GET['delete']) || isset($_POST['delete_user']);
 
     if(!$showEditSection && !$showDeleteSection && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register_submit'])){
@@ -23,6 +24,7 @@
             $user->create($username, $email, $password, $confirmPassword);
             $success = true;
         }catch(Exception $e){
+            $error = $e->getMessage();
         }
     }
     $deleted = false;
@@ -111,6 +113,11 @@
 <?php else: ?>
     <section class="register-page">
         <h2>Register</h2>
+
+        <?php if(!empty($error)): ?>
+            <p class="error-messages"><?php echo htmlspecialchars($error); ?></p>
+        <?php endif; ?>
+
         <?php if($success): ?>
             <p class="success-message">Your account was created successfully. You can now use the Edit User Info or Delete User links to sign in.</p>
         <?php else: ?>

@@ -1,0 +1,291 @@
+/* ===== Basic Reset ===== */
+* {
+    box-sizing: border-box;
+    
+}
+
+body {
+    background-color: #ffe4ec;
+    color: #333333;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #ff6f9d;
+}
+
+h2 {
+    color: #ff6f9d;
+}
+
+h3 {
+    color: #ff6f9d;
+}
+
+p {
+    line-height: 1.5;
+}
+
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* ===== Header ===== */
+.site-header {
+    background-color: #ff6f9d;
+    padding: 1rem;
+}
+
+.header-top {
+    text-align: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.logo h1 {
+    color: #ffffff;
+    margin: 0;
+}
+
+/* ===== Navigation ===== */
+.site-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 1rem 0 0 0;
+}
+
+.site-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.site-nav a:hover {
+    text-decoration: underline;
+}
+
+/* ===== Footer ===== */
+.site-footer {
+    background-color: #ffe4ec;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    color: #333333;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* ===== About Section ===== */
+.about {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* ===== Register Page Section ===== */
+.register-page {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* ===== User Form Section ===== */
+.user-form {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* ===== Product Form Section ===== */
+.product-form {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* ===== Single Product Section ===== */
+.single-product {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    text-align: left;
+}
+
+/* ===== Primary Button ===== */
+.btn {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    background-color: #ff6f9d;
+    color: #ffffff;
+}
+
+.btn:hover {
+    background-color: #e0558a;
+}
+
+/* ===== Secondary Button ===== */
+.btn-secondary {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    border: 2px solid #ff6f9d;
+    cursor: pointer;
+    font-size: 1rem;
+    background-color: #ffffff;
+    color: #ff6f9d;
+}
+
+/* ===== Edit Button ===== */
+.btn-edit {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    background-color: #ff6f9d;
+    color: #ffffff;
+}
+
+/* ===== Delete Button ===== */
+.btn-delete {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    background-color: #d9534f;
+    color: #ffffff;
+}
+
+/* ===== Form Layout ===== */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+label {
+    margin-top: 0.75rem;
+    font-weight: bold;
+}
+
+input {
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+    border: 1px solid #ff6f9d;
+    border-radius: 8px;
+}
+
+/* ===== Success Message ===== */
+.success-message {
+    color: #4caf82;
+    font-weight: bold;
+}
+
+/* ===== Error Message ===== */
+.error-messages {
+    color: #d9534f;
+    font-weight: bold;
+}
+
+/* ===== Products Grid ===== */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.product-card {
+    background-color: #ffffff;
+    border: 1px solid #ffe4ec;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.no-image {
+    background-color: #ffe4ec;
+    color: #333333;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+.price {
+    color: #ff6f9d;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* ===== Single Product Page Layout ===== */
+.single-product figure {
+    margin: 0;
+    flex: 1 1 250px;
+}
+
+.single-product img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.product-details {
+    flex: 2 1 300px;
+}
+
+.stock {
+    color: #333333;
+}
+
+.product-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}

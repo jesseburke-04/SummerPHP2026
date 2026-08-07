@@ -1,6 +1,6 @@
 <?php
-    $pageTitle = "Product Inventory - SugarRush";
-    $pageDescription = "Check out all of the SugarRush products here!";
+    $pageTitle = "SugarRush -Full Product Inventory";
+    $pageDescription = "Here are all of SugarRush's inventory products!";
     require_once 'includes/header.php';
     require_once 'includes/Database.php';
     require_once 'includes/Product.php';
@@ -24,9 +24,9 @@
     $products = $product->getAll();
 ?>
 <section class="products-page">
-    <h2>All Products</h2>
+    <h2>Candy Catalog</h2>
     <?php if(empty($products)): ?>
-        <p>There are no products in the inventory yet.</p>
+        <p>Nothing has been added to the SugarRush inventory.</p>
     <?php else: ?>
         <div class="product-grid">
             <?php foreach($products as $p): ?>
@@ -38,14 +38,14 @@
                     <?php endif; ?>
                     <h3><?php echo htmlspecialchars($p['name']); ?></h3>
                     <p class="price">$<?php echo htmlspecialchars($p['price']); ?></p>
-                    <a class="btn-secondary" href="product.php?id=<?php echo $p['id']; ?>">View Details</a>
+                    <a class="btn-secondary" href="product.php?id=<?php echo $p['id']; ?>">Candy Details</a>
                 </article>
             <?php endforeach; ?>
         </div>
     <?php endif; ?>
 
     <?php if(!$showAddForm): ?>
-        <a class="btn" href="products.php?add=1">Add Product</a>
+        <a class="btn" href="products.php?add=1">Add a NewProduct!</a>
     <?php else: ?>
         <section class="product-form">
             <h2>Add a New Product</h2>
